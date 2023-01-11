@@ -11,8 +11,8 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Name="btnStart" Content="Пуск" Width="80" Height="20" Margin="-100,0,0,0" Click="btnStart_Click"/>
-        <Button Name="btnStop" Content="Стоп" Width="80" Height="20" Margin="100,0,0,0" Click="btnStop_Click"/>
+        <Button Name="btnStart" Content="Start" Width="80" Height="20" Margin="-100,0,0,0" Click="btnStart_Click"/>
+        <Button Name="btnStop" Content="Stop" Width="80" Height="20" Margin="100,0,0,0" Click="btnStop_Click"/>
         <Grid Grid.Row="1" Name="grid1">
         </Grid>
     </Grid>
