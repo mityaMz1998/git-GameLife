@@ -8,15 +8,15 @@ namespace GameLife
     public partial class MainWindow : Window
     {
         int k = 0;
-        bool finish; // флаг, предназначенный для прекращения игры
-        Button[,] system = new Button[20, 20]; // двухмерный массив, состоящий из квадратиков (кнопок)
-        bool[,,] mass = new bool[20, 20, 2]; // двухмерный массив, который показывает, какие квадратики являются зелеными (последний параметр содержит копию массива)
+        bool finish; // flag designed to stop the game
+        Button[,] system = new Button[20, 20]; // a two-dimensional array consisting of squares (buttons)
+        bool[,,] mass = new bool[20, 20, 2]; // a two-dimensional array that shows which squares are green (the last parameter contains a copy of the array)
         public MainWindow()
         {
             InitializeComponent();
             BuildGrid(20);
         }
-        void BuildGrid(int n) // метод для построения сетки
+        void BuildGrid(int n) // method for building a grid
         {
             var grid = new Grid();
             grid1.Children.Add(grid);
@@ -39,7 +39,7 @@ namespace GameLife
                 }
             }
         }
-        int GreenSosediCount(int i, int j) // метод для подсчета количества соседних зеленых квадратиков
+        int GreenSosediCount(int i, int j) // a method for counting the number of adjacent green squares
         {
             int sosedi = 0;
             if (i > 0 && mass[i - 1, j, k] == true) { sosedi++; }
@@ -52,7 +52,7 @@ namespace GameLife
             if (i > 0 && j > 0 && mass[i - 1, j - 1, k] == true) { sosedi++; }
             return sosedi;
         }
-        private void Button_Click(object sender, RoutedEventArgs e) // метод, позволяющий пользователю выбрать зеленые квадратики
+        private void Button_Click(object sender, RoutedEventArgs e) // method that allows the user to select green squares
         {
             if ((sender as Button).Background != Brushes.LightGreen)
                 (sender as Button).Background = Brushes.LightGreen;
@@ -67,7 +67,7 @@ namespace GameLife
                 }
             }
         }
-        void Step() // метод, определяющий цвет квадратиков в следующем шаге
+        void Step() // the method that determines the color of the squares in the next step
         {
             for (int i = 0; i < 20; i++)
             {
@@ -93,7 +93,7 @@ namespace GameLife
                 }
             }
         }
-        private async void btnStart_Click(object sender, RoutedEventArgs e) // метод для начала или продолжения игры
+        private async void btnStart_Click(object sender, RoutedEventArgs e) // method for starting or continuing the game
         {
             finish = false;
             while (!finish)
@@ -103,7 +103,7 @@ namespace GameLife
                 await Task.Delay(200);
             }
         }
-        private void btnStop_Click(object sender, RoutedEventArgs e) // метод для остановки игры
+        private void btnStop_Click(object sender, RoutedEventArgs e) // method for stopping the game
         {
             finish = true;
         }
